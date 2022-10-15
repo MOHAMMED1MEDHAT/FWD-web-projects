@@ -34,13 +34,13 @@ const navList = document.getElementById('navbar__list');
 //TODO: function to add active class to the section in the viewport
 function isInViewPort(section) {
     let sectionRect = section.getBoundingClientRect();
-    return sectionRect.top >= 0 && sectionRect.top <= 300;
+    return sectionRect.top >= 0 && sectionRect.top <= 350;
 }//end of isInViewPort function
 
 //TODO: function to remove active class from the section not in the viewport
 function isNotInViewPort(section) {
     let sectionRect = section.getBoundingClientRect();
-    return sectionRect.top < 0 || sectionRect.top > 300;
+    return sectionRect.top < 0 || sectionRect.top > 350;
 }//end of isNotInViewPort function
 
 /**
@@ -82,22 +82,22 @@ function removeActiveStyle(section) {
 function scrolling(){
     for(section of addedSections){
         if(isInViewPort(section)){
-            section.classList.add("your-active-class");
+            addActiveStyle(section);
         }
         if(isNotInViewPort(section)){
-            section.classList.remove("your-active-class");
+            removeActiveStyle(section);
         }
     }
 }//end of scrolling function
 // Scroll to anchor ID using scrollTO event
 //ToDO: function to scroll to the section when the link is clicked smoothly
 function scrollToSection() {
-    const links = document.querySelectorAll('.menu__link');
-    for(link of links){
-        link.addEventListener('click', function(event){
+    const sectionsToScroll = document.querySelectorAll('.menu__link');
+    for(sectionToScroll of sectionsToScroll){
+        sectionToScroll.addEventListener('click', function(event){
             event.preventDefault();
-            const sectionId = event.target.getAttribute('href');
-            document.querySelector(sectionId).scrollIntoView({behavior: 'smooth'});
+            const section = event.target.getAttribute('href');
+            document.querySelector(section).scrollIntoView({behavior: 'smooth'});
         });
     }
 }//end of scrollToSection function
