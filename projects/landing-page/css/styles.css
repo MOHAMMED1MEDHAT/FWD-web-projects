@@ -68,6 +68,7 @@ section {
     padding-left: 0;
     margin: 0;
     text-align: right;
+    background-color: rgba(163, 163, 163, 0.5);/*TODO:change the main nav bar background-color */
 }
 
 .navbar__menu li {
@@ -79,12 +80,12 @@ section {
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color:purple;/*TODO: change color*/
 }
 
 .navbar__menu .menu__link:hover {
-    background: #333;
-    color: #fff;
+    background: rgba(51, 51, 51, 0.215);
+    color: rgb(252, 0, 252);/*TODO: change color */
     transition: ease 0.3s all;
 }
 
